@@ -9,6 +9,7 @@ import streamlit as st
 import numpy as np
 import folium # interaktivní mapy
 from streamlit_folium import st_folium
+import datetime
 
 # Load the dataset ----------------------------------------------------------------------------------------------------------------
 df = pd.read_csv("s_reality_cleaned.csv")
@@ -71,6 +72,7 @@ def city_part(df):
 # musí se spouštět přes cmd-line: streamlit run c:/Users/H32250/H32250/projects/RealEstate/reality/reality_02.py
 st.title("🏡 Brno living dashboard")
 st.write("Analyze how bad the situation really is")
+st.write(f"Last update: {datetime.date.today()}")
 
 show_all = st.sidebar.checkbox("Show All Properties", value=False) # vykreslí zaškrtávací políčko
 
