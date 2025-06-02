@@ -10,12 +10,15 @@ from selenium.webdriver.support import expected_conditions as EC
 import random
 import time
 import pandas as pd
+import datetime
+import tempfile
 
 # variables
 price_max = 5_500_000
 sqm_min = 40
 floor_min = 2
 dispozice_list = ["2+kk", "2+1", "3+kk", "3+1"]
+today = datetime.date.today()
 
 # Stealth Settings -----------------------------------------------------------------------------------------------------------------
 if __name__ == "__main__":
@@ -29,8 +32,11 @@ if __name__ == "__main__":
 
     profile_path = r"C:\Users\H32250\AppData\Roaming\\MEdge\\Profiles"
 
+    temp_profile_dir = tempfile.mkdtemp()
+
     options = Options()
-    options.add_argument(f"user-data-dir={profile_path}") 
+    #options.add_argument(f"user-data-dir={profile_path}") 
+    options.add_argument(f"--user-data-dir={temp_profile_dir}")
     options.add_argument("profile-directory=Default")  
     options.add_argument("--disable-blink-features=AutomationControlled") 
     options.add_argument(f"user-agent={random.choice(USER_AGENTS)}")
