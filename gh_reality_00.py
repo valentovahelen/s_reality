@@ -34,7 +34,7 @@ if __name__ == "__main__":
 
     temp_profile_dir = tempfile.mkdtemp()
 
-    options = Options()
+    #options = Options()
     #options.add_argument(f"user-data-dir={profile_path}") 
     """options.add_argument(f"--user-data-dir={temp_profile_dir}")
     options.add_argument("profile-directory=Default")  
