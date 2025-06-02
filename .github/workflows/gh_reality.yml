@@ -1,0 +1,32 @@
+name: Run Both Scripts Daily
+
+on:
+  schedule:
+    - cron: '0 22 * * *'  # každý den v 5:00 UTC (7:00 SELČ)
+  workflow_dispatch:
+
+jobs:
+  run-both-scripts:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run gh_reality_00.py
+        run: |
+          python gh_reality_00.py
+
+      - name: Run gh_reality_01.py
+        run: |
+          python gh_reality_01.py
