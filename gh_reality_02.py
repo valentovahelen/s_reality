@@ -147,7 +147,7 @@ st.subheader("Price Distribution")
 with st.container(): # možňuje seskupit více Streamlit komponent do jednoho prostoru
     fig, ax = plt.subplots(figsize=(8, 4)) # velikost v palcích
     sns.histplot(filtered_df["Price"], bins=30, kde=True, ax=ax) # ax = ax - vykreslen na předem vytvořené ose (ax
-    ax.xaxis.set_major_formatter(mtick.FuncFormatter(lambda x, _: f'{x/1_000_000:.0f}M'))
+    ax.xaxis.set_major_formatter(mtick.FuncFormatter(lambda x, _: f'{x/1_000_000:.1f}M')) # 1f určuje počet desetiných míst
     ax.set_xlabel("Price (Kč)")
     ax.set_ylabel("Count")
     st.pyplot(fig)
