@@ -36,11 +36,16 @@ if __name__ == "__main__":
 
     options = Options()
     #options.add_argument(f"user-data-dir={profile_path}") 
-    options.add_argument(f"--user-data-dir={temp_profile_dir}")
+    """options.add_argument(f"--user-data-dir={temp_profile_dir}")
     options.add_argument("profile-directory=Default")  
     options.add_argument("--disable-blink-features=AutomationControlled") 
     options.add_argument(f"user-agent={random.choice(USER_AGENTS)}")
-    options.add_argument("--inprivate")
+    options.add_argument("--inprivate")"""
+    options = Options()
+    options.add_argument("--headless=new")         # nový headless režim
+    options.add_argument("--disable-gpu")
+    options.add_argument("--no-sandbox")
+    options.add_argument("--disable-dev-shm-usage")
 
     service = Service(EdgeChromiumDriverManager().install())
     driver = webdriver.Edge(service=service, options=options)
