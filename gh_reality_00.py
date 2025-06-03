@@ -118,7 +118,9 @@ if __name__ == "__main__":
     scraped_data = []
     page_number = 1
     price_number = 0
-    listings_number = driver.find_element(By.XPATH, '//*[contains(text(), "výsledků")]').text.strip() # //* — najdi jakýkoliv element
+    wait = WebDriverWait(driver, 10)
+    listings_number = wait.until(EC.presence_of_element_located((By.XPATH, '//*[contains(text(), "výsledků")]')))
+    listings_number = listings_number.text.strip() # //* — najdi jakýkoliv element
     listings_number = int(listings_number.split(" ")[0])
 
     while True:
