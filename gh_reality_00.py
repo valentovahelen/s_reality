@@ -63,6 +63,7 @@ if __name__ == "__main__":
     # typ nabídky
     element = WebDriverWait(driver, timeout=10).until(EC.element_to_be_clickable((By.XPATH, "//span[normalize-space()='Prodej']")))
     typ_nabidky = WebDriverWait(driver, timeout=10).until(EC.element_to_be_clickable((By.XPATH, "//span[normalize-space()='Prodej']")))
+    driver.save_screenshot("/tmp/before_click.png")
     typ_nabidky.click()
     print("Typ nabídky:", typ_nabidky.get_attribute("innerHTML"))
     # kontrola print("Zobrazen:", checkbox.is_displayed()); print("Aktivní:", checkbox.is_enabled())
