@@ -20,6 +20,7 @@ sqm_min = 40
 floor_min = 2
 dispozice_list = ["2+kk", "2+1", "3+kk", "3+1"]
 today = datetime.date.today()
+print("kontrola 1")
 
 # Stealth Settings -----------------------------------------------------------------------------------------------------------------
 if __name__ == "__main__":
