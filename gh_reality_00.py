@@ -20,7 +20,7 @@ sqm_min = 40
 floor_min = 2
 dispozice_list = ["2+kk", "2+1", "3+kk", "3+1"]
 today = datetime.date.today()
-print("kontrola 5")
+print("kontrola 6")
 
 # Stealth Settings -----------------------------------------------------------------------------------------------------------------
 if __name__ == "__main__":
@@ -59,58 +59,58 @@ if __name__ == "__main__":
 
     # Filtering information -----------------------------------------------------------------------------------------------------------------
     
-    try:
-        # typ nabídky
-        element = WebDriverWait(driver, timeout=10).until(EC.element_to_be_clickable((By.XPATH, "//span[normalize-space()='Prodej']")))
-        typ_nabidky = driver.find_element(By.XPATH, "//span[normalize-space()='Prodej']")
-        typ_nabidky.click()
-        print("Typ nabídky:", typ_nabidky.get_attribute("innerHTML"))
-        # kontrola print("Zobrazen:", checkbox.is_displayed()); print("Aktivní:", checkbox.is_enabled())
-        
-        # dispozice
-        time.sleep(1)
-        for disp in dispozice_list:
-            dispozice = driver.find_element(By.XPATH, f"//span[normalize-space()='{disp}']")
-            dispozice.click()
-            print("Dispozice:", dispozice.get_attribute("innerHTML"))
+    #try:
+    # typ nabídky
+    element = WebDriverWait(driver, timeout=10).until(EC.element_to_be_clickable((By.XPATH, "//span[normalize-space()='Prodej']")))
+    typ_nabidky = driver.find_element(By.XPATH, "//span[normalize-space()='Prodej']")
+    typ_nabidky.click()
+    print("Typ nabídky:", typ_nabidky.get_attribute("innerHTML"))
+    # kontrola print("Zobrazen:", checkbox.is_displayed()); print("Aktivní:", checkbox.is_enabled())
+    
+    # dispozice
+    time.sleep(1)
+    for disp in dispozice_list:
+        dispozice = driver.find_element(By.XPATH, f"//span[normalize-space()='{disp}']")
+        dispozice.click()
+        print("Dispozice:", dispozice.get_attribute("innerHTML"))
 
-        # lokalita
-        lokalita = driver.find_element(By.XPATH, "//*[name()='path' and contains(@d,'M546.667 3')]")
-        lokalita.click()
-        """lokalita.send_keys("Brno")
-        lokalita.send_keys(Keys.ARROW_DOWN)
-        lokalita.send_keys(Keys.ENTER)"""
-        mesto = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.XPATH, "//span[contains(text(),'Brno-město')]")))
-        driver.execute_script("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", mesto) # bez scroll nebylo ve viewportu
-        mesto.click()
-        mesto_value = mesto.get_attribute("value")
-        print("Lokalita:", mesto_value)
+    # lokalita
+    lokalita = driver.find_element(By.XPATH, "//*[name()='path' and contains(@d,'M546.667 3')]")
+    lokalita.click()
+    """lokalita.send_keys("Brno")
+    lokalita.send_keys(Keys.ARROW_DOWN)
+    lokalita.send_keys(Keys.ENTER)"""
+    mesto = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.XPATH, "//span[contains(text(),'Brno-město')]")))
+    driver.execute_script("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", mesto) # bez scroll nebylo ve viewportu
+    mesto.click()
+    mesto_value = mesto.get_attribute("value")
+    print("Lokalita:", mesto_value)
 
-        # podlaží
-        podlazi = driver.find_element(By.ID, "«r0»")
-        podlazi.send_keys(floor_min)
-        podlazi_value = podlazi.get_attribute("value")
-        print("Podlaží od:", podlazi_value)
-        
-        # užitná plocha
-        plocha = driver.find_element(By.ID, "«r2»")
-        plocha.send_keys(sqm_min)
-        plocha_value = plocha.get_attribute("value")
-        print("Užitná plocha od:", plocha_value)
+    # podlaží
+    podlazi = driver.find_element(By.ID, "«r0»")
+    podlazi.send_keys(floor_min)
+    podlazi_value = podlazi.get_attribute("value")
+    print("Podlaží od:", podlazi_value)
+    
+    # užitná plocha
+    plocha = driver.find_element(By.ID, "«r2»")
+    plocha.send_keys(sqm_min)
+    plocha_value = plocha.get_attribute("value")
+    print("Užitná plocha od:", plocha_value)
 
-        # cena
-        cena = driver.find_element(By.ID, "«r5»")
-        cena.send_keys(price_max)
-        cena_value = cena.get_attribute("value")
-        print("Cena do:", cena_value)
+    # cena
+    cena = driver.find_element(By.ID, "«r5»")
+    cena.send_keys(price_max)
+    cena_value = cena.get_attribute("value")
+    print("Cena do:", cena_value)
 
-        # nabídky - enter
-        nabidky = driver.find_element(By.ID, "«Ralal6lff6»")
-        nabidky.click()
-        time.sleep(5)
+    # nabídky - enter
+    nabidky = driver.find_element(By.ID, "«Ralal6lff6»")
+    nabidky.click()
+    time.sleep(5)
 
-    except:
-        print("Failed due to filtering infromation")
+     #except:
+      #  print("Failed due to filtering infromation")
 
     # Scraping RealEstate information ---------------------------------------------------------------------------------------------------
 
