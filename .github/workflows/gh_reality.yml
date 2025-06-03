@@ -30,3 +30,11 @@ jobs:
       - name: Run gh_reality_01.py
         run: |
           python gh_reality_01.py
+
+      
+      - name: Upload screenshot if exists
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: screenshots
+          path: screenshot.png
