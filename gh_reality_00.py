@@ -20,7 +20,7 @@ sqm_min = 40
 floor_min = 2
 dispozice_list = ["2+kk", "2+1", "3+kk", "3+1"]
 today = datetime.date.today()
-print("kontrola 6")
+print("kontrola 7")
 
 # Stealth Settings -----------------------------------------------------------------------------------------------------------------
 if __name__ == "__main__":
@@ -62,7 +62,7 @@ if __name__ == "__main__":
     #try:
     # typ nabídky
     element = WebDriverWait(driver, timeout=10).until(EC.element_to_be_clickable((By.XPATH, "//span[normalize-space()='Prodej']")))
-    typ_nabidky = driver.find_element(By.XPATH, "//span[normalize-space()='Prodej']")
+    typ_nabidky = WebDriverWait(driver, timeout=10).until(EC.element_to_be_clickable((By.XPATH, "//span[normalize-space()='Prodej']")))
     typ_nabidky.click()
     print("Typ nabídky:", typ_nabidky.get_attribute("innerHTML"))
     # kontrola print("Zobrazen:", checkbox.is_displayed()); print("Aktivní:", checkbox.is_enabled())
