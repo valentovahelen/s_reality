@@ -20,7 +20,7 @@ sqm_min = 40
 floor_min = 2
 dispozice_list = ["2+kk", "2+1", "3+kk", "3+1"]
 today = datetime.date.today()
-print("kontrola 2")
+print("kontrola 3")
 
 # Stealth Settings -----------------------------------------------------------------------------------------------------------------
 if __name__ == "__main__":
@@ -120,7 +120,8 @@ if __name__ == "__main__":
     price_number = 0
     wait = WebDriverWait(driver, 10)
     listings_number = wait.until(EC.presence_of_element_located((By.XPATH, '//*[contains(text(), "výsledků")]')))
-    listings_number = listings_number.text.strip() # //* — najdi jakýkoliv element
+    listings_number = listings_number.text.strip()
+    print(listings_number)
     listings_number = int(listings_number.split(" ")[0])
 
     while True:
