@@ -81,12 +81,9 @@ if __name__ == "__main__":
     driver.save_screenshot("before_click.png")
     print("Screenshot saved:", os.path.abspath("before_click.png"))
     actions.move_to_element(lokalita).click().perform()
-    """lokalita.send_keys("Brno")
-    lokalita.send_keys(Keys.ARROW_DOWN)
-    lokalita.send_keys(Keys.ENTER)"""
     mesto = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.XPATH, "//span[contains(text(),'Brno-město')]")))
     driver.execute_script("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", mesto) # bez scroll nebylo ve viewportu
-    mesto.click()
+    actions.move_to_element(mesto).click().perform()
     mesto_value = mesto.get_attribute("value")
     print("Lokalita:", mesto_value)
 
