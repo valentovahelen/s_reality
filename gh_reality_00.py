@@ -78,7 +78,7 @@ if __name__ == "__main__":
 
     # lokalita
     lokalita = driver.find_element(By.XPATH, "//*[name()='path' and contains(@d,'M546.667 3')]")
-    driver.execute_script("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", lokalita)
+    driver.execute_script("arguments[0].scrollIntoView(true);", lokalita)
     driver.save_screenshot("before_click.png")
     print("Screenshot saved:", os.path.abspath("before_click.png"))
 
