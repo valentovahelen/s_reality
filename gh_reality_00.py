@@ -79,6 +79,7 @@ if __name__ == "__main__":
     # lokalita
     lokalita = driver.find_element(By.XPATH, "//*[name()='path' and contains(@d,'M546.667 3')]")
     driver.execute_script("arguments[0].scrollIntoView(true);", lokalita)
+    actions.move_to_element(lokalita).click().perform()
     time.sleep(2)
     elements = driver.find_elements(By.XPATH, "//span[contains(text(),'Brno-město')]")
     print("Našlo se:", len(elements))
