@@ -38,3 +38,8 @@ jobs:
         with:
           name: screenshots
           path: before_click.png
+      - name: Upload output CSV
+        uses: actions/upload-artifact@v4
+        with:
+          name: s-reality-data
+          path: s_reality.csv
