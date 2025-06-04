@@ -111,8 +111,7 @@ if __name__ == "__main__":
         nabidky = driver.find_element(By.ID, "«Ralal6lff6»")
         nabidky.click()
         time.sleep(5)
-
-     except:
+    except:
         print("Failed due to filtering infromation")
 
     # Scraping RealEstate information ---------------------------------------------------------------------------------------------------
