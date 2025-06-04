@@ -82,7 +82,7 @@ if __name__ == "__main__":
     time.sleep(2)
     elements = driver.find_elements(By.XPATH, "//span[contains(text(),'Brno-město')]")
     print("Našlo se:", len(elements))
-    mesto = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.XPATH, "//span[contains(text(),'Brno-město')]")))
+    mesto = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//span[contains(text(),'Brno-město')]")))
     #driver.execute_script("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", mesto) # bez scroll nebylo ve viewportu
     actions.move_to_element(mesto).click().perform()
     driver.save_screenshot("before_click.png")
