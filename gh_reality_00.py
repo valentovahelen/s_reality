@@ -32,6 +32,7 @@ if __name__ == "__main__":
     options.add_argument("--disable-dev-shm-usage")
 
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+    driver.set_window_size(900, 1000)
 
     # Website ----------------------------------------------------------------------------------------------------------------------------
     # Define Target URL
