@@ -80,7 +80,7 @@ if __name__ == "__main__":
     lokalita = driver.find_element(By.XPATH, "//*[name()='path' and contains(@d,'M546.667 3')]")
     driver.save_screenshot("before_click.png")
     print("Screenshot saved:", os.path.abspath("before_click.png"))
-    lokalita.click()
+    actions.move_to_element(lokalita).click().perform()
     """lokalita.send_keys("Brno")
     lokalita.send_keys(Keys.ARROW_DOWN)
     lokalita.send_keys(Keys.ENTER)"""
