@@ -65,8 +65,6 @@ if __name__ == "__main__":
     # typ nabídky
     element = WebDriverWait(driver, timeout=10).until(EC.element_to_be_clickable((By.XPATH, "//span[normalize-space()='Prodej']")))
     typ_nabidky = WebDriverWait(driver, timeout=10).until(EC.element_to_be_clickable((By.XPATH, "//span[normalize-space()='Prodej']")))
-    driver.save_screenshot("before_click.png")
-    print("Screenshot saved:", os.path.abspath("before_click.png"))
     typ_nabidky.click()
     print("Typ nabídky:", typ_nabidky.get_attribute("innerHTML"))
     # kontrola print("Zobrazen:", checkbox.is_displayed()); print("Aktivní:", checkbox.is_enabled())
@@ -80,6 +78,8 @@ if __name__ == "__main__":
 
     # lokalita
     lokalita = driver.find_element(By.XPATH, "//*[name()='path' and contains(@d,'M546.667 3')]")
+    driver.save_screenshot("before_click.png")
+    print("Screenshot saved:", os.path.abspath("before_click.png"))
     lokalita.click()
     """lokalita.send_keys("Brno")
     lokalita.send_keys(Keys.ARROW_DOWN)
