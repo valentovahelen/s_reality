@@ -1,5 +1,8 @@
 name: Run Both Scripts Daily
 
+permissions:
+  contents: write
+
 on:
   schedule:
     - cron: '0 22 * * *'  # každý den v 5:00 UTC (7:00 SELČ)
