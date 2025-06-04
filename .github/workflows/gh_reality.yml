@@ -30,7 +30,6 @@ jobs:
       - name: Run gh_reality_01.py
         run: |
           python gh_reality_01.py
-
       
       - name: Upload screenshot if exists
         if: always()
@@ -38,8 +37,14 @@ jobs:
         with:
           name: screenshots
           path: before_click.png
-      - name: Upload output CSV
-        uses: actions/upload-artifact@v4
-        with:
-          name: s-reality-data
-          path: s_reality.csv
+          
+      - name: Commit and push CSV file
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          if [ -f s_reality.csv ]; then
+            git add s_reality.csv
+            git commit -m "Update scraped data CSV [auto]" || echo "No changes to commit"
+            git push
+          fi
