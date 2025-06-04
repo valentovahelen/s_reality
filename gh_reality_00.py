@@ -79,13 +79,12 @@ if __name__ == "__main__":
     # lokalita
     lokalita = driver.find_element(By.XPATH, "//*[name()='path' and contains(@d,'M546.667 3')]")
     driver.execute_script("arguments[0].scrollIntoView(true);", lokalita)
-    actions.move_to_element(lokalita).click().perform()
+    
+    mesto = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.XPATH, "//span[contains(text(),'Brno-město')]")))
+    #driver.execute_script("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", mesto) # bez scroll nebylo ve viewportu
+    actions.move_to_element(mesto).click().perform()
     driver.save_screenshot("before_click.png")
     print("Screenshot saved:", os.path.abspath("before_click.png"))
-
-    mesto = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.XPATH, "//span[contains(text(),'Brno-město')]")))
-    driver.execute_script("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", mesto) # bez scroll nebylo ve viewportu
-    actions.move_to_element(mesto).click().perform()
     mesto_value = mesto.get_attribute("value")
     print("Lokalita:", mesto_value)
 
