@@ -1,8 +1,10 @@
 import pandas as pd
 from geopy.geocoders import Nominatim
-from gh_reality_00 import price_max, sqm_min, dispozice_list
+from gh_reality_00 import price_max, sqm_min, dispozice_list, today
 import datetime as dt
 import os
+
+today = today
 
 # Load & Inspect the Dataset ---------------------------------------------------------------------------------------------------
 # Load the dataset
