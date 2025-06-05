@@ -41,13 +41,33 @@ jobs:
           name: screenshots
           path: before_click.png
           
-      - name: Commit and push CSV file
+      - name: Commit and push CSV file - s_reality.csv
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
           if [ -f s_reality.csv ]; then
             git add s_reality.csv
+            git commit -m "Update scraped data CSV [auto]" || echo "No changes to commit"
+            git push
+          fi
+      - name: Commit and push CSV file - s_reality_all.csv
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          if [ -f s_reality.csv ]; then
+            git add s_reality_all.csv
+            git commit -m "Update scraped data CSV [auto]" || echo "No changes to commit"
+            git push
+          fi
+      - name: Commit and push CSV file - s_reality_cleaned.csv
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          if [ -f s_reality.csv ]; then
+            git add s_reality_cleaned.csv
             git commit -m "Update scraped data CSV [auto]" || echo "No changes to commit"
             git push
           fi
