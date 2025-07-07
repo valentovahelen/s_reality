@@ -103,7 +103,7 @@ def df_all():
             print(f"Přidáno {len(df_new)} nových záznamů.")
         else:
             print("Žádné nové záznamy k přidání.")
-    except:
+    except Exception as e:
         print(f"Nastala chyba při práci se souborem all: {e}")
 
 # Run Script & Save Cleaned Data -----------------------------------------------------------------------------------------------------------------------
