@@ -104,7 +104,7 @@ def df_all():
         else:
             print("Žádné nové záznamy k přidání.")
     except:
-        print(f"Nastala chyba při práci se souborem all.")
+        print(f"Nastala chyba při práci se souborem all: {e}")
 
 # Run Script & Save Cleaned Data -----------------------------------------------------------------------------------------------------------------------
 if __name__ == "__main__": # "Spusť následující blok kódu jen tehdy, když tento skript spouštím přímo."
